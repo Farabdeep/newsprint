@@ -14,9 +14,13 @@ const db = mysql.createConnection({
   database: "world",
 });
 
+//set view engine to pug
+app.set("view engine", "pug");
+app.use(express.static,("static"));
+
 /* Landing route */
 app.get("/", (req, res) => {
-  res.send("Hello world!");
+  res.render("index")
 });
 
 // Sample API route
@@ -26,7 +30,7 @@ app.get("/ping", (req, res) => {
 
 // Returns an array of cities from the database
 app.get("/cities", (req, res) => {
-  db.execute("SELECT * FROM `city`", (err, rows, fields) => {
+  db.execute("SELECT * FROM city WHERE CountryCode = 'NLD'", (err, rows, fields) => {
     console.log(`/cities: ${rows.length} rows`);
     return res.send(rows);
   });
@@ -34,5 +38,5 @@ app.get("/cities", (req, res) => {
 
 // Run server!
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log(`Server running on port ${port} yay`);
 });
