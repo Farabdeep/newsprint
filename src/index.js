@@ -26,9 +26,6 @@ app.get("/", (req, res) => {
 app.get("/aboutus", (req, res) => {
   res.render("aboutus.pug");
 });
-app.get("/population", (req, res) => {
-  res.render("population.pug");
-});
 
 
 // Sample API route
@@ -38,10 +35,13 @@ app.get("/ping", (req, res) => {
 
 // Returns an array of cities from the database
 app.get("/cities", (req, res) => {
-  db.execute("SELECT * FROM city WHERE CountryCode = 'NLD'", (err, rows, fields) => {
+  try{
+    const [rows, fields] =  db.execute("SELECT * FROM city WHERE CountryCode = 'NLD'");
+    return res.render("cities",{rows, fields });
+  } catch (err){
     console.log(`/cities: ${rows.length} rows`);
     return res.send(rows);
-  });
+  };
 });
 
 // Run server!
