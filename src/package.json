@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.mjs",
-    "dev": "nodemon -e js index.mjs",
+    "start": "node index.js",
+    "dev": "nodemon -e js index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
