@@ -20,7 +20,7 @@ app.use(express.static,("static"));
 
 /* Landing route */
 app.get("/", (req, res) => {
-  res.render("index")
+  res.render("index");
 });
 
 // Sample API route
