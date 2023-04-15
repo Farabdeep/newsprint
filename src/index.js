@@ -1,10 +1,11 @@
 /* Import dependencies */
 const express = require("express");
+const app = express();
+const port = 3000;
+
 const mysql = require("mysql2");
 
 /* Create express instance */
-const app = express();
-const port = 3000;
 
 /* Setup database connection */
 const db = mysql.createConnection({
