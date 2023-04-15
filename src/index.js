@@ -26,6 +26,9 @@ app.get("/", (req, res) => {
 app.get("/aboutus", (req, res) => {
   res.render("aboutus.pug");
 });
+app.get("/population", (req, res) => {
+  res.render("population.pug");
+});
 
 
 // Sample API route
