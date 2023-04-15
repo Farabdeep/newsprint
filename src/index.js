@@ -16,7 +16,7 @@ const db = mysql.createConnection({
 
 //set view engine to pug
 app.set("view engine", "pug");
-app.use(express.static,("static"));
+app.use(express.static("static"));
 
 /* Landing route */
 app.get("/", (req, res) => {
