@@ -6,7 +6,10 @@ html
         block head
     body
     header
-      include nav
+       .layout
+            .layout-nav
+                include mixins/nav
+                +navigation()
     main
       block content
     footer

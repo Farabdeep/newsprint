@@ -1,0 +1,19 @@
+extends layout.pug 
+
+block head
+    link(rel="stylesheet", href="/cities.css")
+
+block content
+    h2 Cities 
+    table
+        thead 
+            th.Country
+            th.city
+            th.number population
+        tbody
+            each rows in rows
+            tr
+                td.fit #{row.countrycode}
+                td. #{row.Name}
+                    - const population = new Intl.NumberFormat().format(row.Population);
+                td.fit.number #{population}
