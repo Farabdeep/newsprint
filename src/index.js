@@ -23,6 +23,10 @@ app.use(express.static("static"));
 app.get("/", (req, res) => {
   res.render("index.pug");
 });
+app.get("/aboutus", (req, res) => {
+  res.render("aboutus.pug");
+});
+
 
 // Sample API route
 app.get("/ping", (req, res) => {
