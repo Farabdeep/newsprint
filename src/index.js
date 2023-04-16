@@ -34,9 +34,9 @@ app.get("/ping", (req, res) => {
 });
 
 // Returns an array of cities from the database
-app.get("/cities", (req, res) => {
+app.get("/cities", async (req, res) => {
   try{
-    const [rows, fields] =  db.execute("SELECT * FROM city WHERE CountryCode = 'NLD'");
+    const [rows, fields] = await db.execute("SELECT * FROM city WHERE CountryCode = 'NLD'");
     return res.render("cities",{rows, fields });
   } catch (err){
     console.log(`/cities: ${rows.length} rows`);
