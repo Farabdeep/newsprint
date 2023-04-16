@@ -13,6 +13,7 @@
   "dependencies": {
     "express": "^4.18.2",
     "mysql2": "^3.2.0",
+    "plug": "^0.2.4",
     "pug": "^3.0.2"
   }
 }
