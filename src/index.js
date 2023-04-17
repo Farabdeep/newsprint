@@ -13,6 +13,7 @@ const db = mysql.createConnection({
   user: "user",
   password: "password",
   database: "world",
+  port: "3306"
 });
 
 //set view engine to pug
@@ -29,14 +30,11 @@ app.get("/ping", (req, res) => {
 });
 
 // Returns an array of cities from the database
-app.get("/cities", async (req, res) => {
-  try{
-    const [rows, fields] = await db.execute("SELECT * FROM city WHERE CountryCode = 'NLD'");
-    return res.render("cities",{rows, fields });
-  } catch (err){
-    console.log(`/cities: ${rows.length} rows`);
-    return res.send(rows);
-  };
+app.get("/cities", (req, res) => {
+   db.execute("SELECT * FROM city LIMIT 30", (err, rows, fields) => {
+    console.log(`The length od cities table is: ${rows.length}`);
+    return res.render("cities", {'rows': rows});
+   });
 });
 
 // Run server!
