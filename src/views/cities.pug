@@ -11,8 +11,8 @@ block content
             th.city
             th.number population
         tbody
-            each row in rows
-            tr
-                td.fit #{row.countrycode}
-                td. #{row.Name}
-                td.fit.number #{population}
+            for row in rows
+                tr
+                    td #{row.countrycode}
+                    td #{row.Name}
+                    td #{population}
