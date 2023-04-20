@@ -25,13 +25,13 @@ app.use(express.static("static"));
 
 
 // Sample API route
-app.get("/ping", (req, res) => {
-  res.send("pong");
+app.get("/", (req, res) => {
+  res.render("index.pug");
 });
 
 // Returns an array of cities from the database
 app.get("/cities", (req, res) => {
-   db.execute("SELECT * FROM city LIMIT 30", (err, rows, fields) => {
+   db.execute("SELECT * FROM city LIMIT 50", (err, rows, fields) => {
     console.log(`The length od cities table is: ${rows.length}`);
     return res.render("cities", {'rows': rows});
    });
