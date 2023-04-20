@@ -69,3 +69,15 @@ body {
     text-align: center;
   }
   
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+  
+  td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
