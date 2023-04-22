@@ -14,4 +14,4 @@ mixin navigation
       each route in routes
         - const { label, href } = route
         li
-          a(href=href, &attributes={'class': href === getPath() ? "is-active" : ""}) #{label}
+          a(href=href, class={ 'is-active': href === getPath() }) #{label}
