@@ -22,24 +22,27 @@ body {
     text-align: center;
   }
   
-  .nav {
+  .horizontal-menu {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
   }
-  
-  .nav a {
-    color: #fff;
+
+  .horizontal-menu li {
+    margin-right: 15px; /* Adjust the spacing between menu items */
+  }
+
+  .horizontal-menu a {
     text-decoration: none;
-    padding: 10px;
+    color: inherit;
   }
-  
-  .nav a:hover {
-    background-color: #555;
+
+  .horizontal-menu .is-active {
+    font-weight: bold;
+    color: #000; /* Adjust the active menu item color */
   }
+
   
   .main {
     padding: 20px;
@@ -80,4 +83,10 @@ body {
     padding: 8px;
     text-align: left;
   }
+
+  .logo {
+    width: 100px;
+    height: 100px;
+  }
+  
   
