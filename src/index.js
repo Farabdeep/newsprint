@@ -31,10 +31,14 @@ app.get("/", (req, res) => {
 
 // Returns an array of cities from the database
 app.get("/cities", (req, res) => {
-   db.execute("SELECT * FROM city LIMIT 50", (err, rows, fields) => {
-    console.log(`The length od cities table is: ${rows.length}`);
+   db.execute("SELECT * FROM city LIMIT 120", (err, rows, fields) => {
+    console.log(`The length oF cities table is: ${rows.length}`);
     return res.render("cities", {'rows': rows});
    });
+});
+
+app.get("/aboutus", (req, res) => {
+  res.render("aboutus.pug");
 });
 
 // Run server!
