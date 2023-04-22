@@ -8,7 +8,7 @@ mixin navigation
       { label: "cities", href: "/cities"},
     ];
   aside.menu
-    img(src="/logo.png", class="logo") // Use the CSS class for image resizing
+    img(src="/logo.png", style="width: 100px; height: 100px;") 
     p.menu-label Views
     ul.menu-list
       each route in routes
