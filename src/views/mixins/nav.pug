@@ -8,10 +8,10 @@ mixin navigation
       { label: "cities", href: "/cities"},
     ];
   aside.menu
-    img(src="/logo.png")
+    img(src="/logo.png", class="logo") // Use the CSS class for image resizing
     p.menu-label Views
     ul.menu-list
       each route in routes
         - const { label, href } = route
         li
-          a(href=href, class=href === path ? "is-active" : "") #{label}
+          a(href=href, class=href === getPath() ? "is-active" : "") #{label}

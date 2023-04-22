@@ -1,9 +1,12 @@
 extends layout.pug 
 
+include nav.pug  // Include the nav.pug file
+
 block head
     link(rel="stylesheet", href="/css/cities.css")
 
 block content
+    +navigation() // Use the navigation mixin
     h2 Cities 
     table
         thead 
