@@ -1,16 +1,5 @@
-mixin navigation(currentPath)
-  -
-    const routes = [
-      { label: "Home", href: "/" },
-      { label: "Population", href: "/population" },
-      { label: "about us", href: "/aboutus" },
-      { label: "cities", href: "/cities"},
-    ];
-  aside.menu
-    img(src="/logo.png", style="width: 100px; height: 100px;") 
-    p.menu-label Views
-    ul.menu-list
-      each route in routes
-        - const { label, href } = route
-        li
-          a(href=href, class={ 'is-active': href === currentPath }) #{label}
+mixin navigation  
+    nav
+    a(href= '/index')Home
+    a(href= '/cities')cities
+    a(href= '/index')Home

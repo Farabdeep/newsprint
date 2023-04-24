@@ -1,41 +1,59 @@
-.menu {
-  width: 200px;
-  background-color: #f8f9fa;
-  padding: 15px;
-  border-radius: 5px;
-}
-
-.menu-label {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.menu-list {
-  list-style-type: none;
+html,
+body {
+  font-size: 14px;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #eeeeee;
+  margin: 0;
   padding: 0;
 }
 
-.menu-list li {
-  margin-bottom: 5px;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.menu-list a {
+.layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0rem 3rem;
+}
+
+h1 {
+  font-size: xx-large;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  margin: 0;
+  margin-bottom: 1rem;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 0rem;
+}
+
+nav b {
+  font-size: large;
+}
+
+nav a {
+  color: #181818;
   text-decoration: none;
-  color: #fff;
-  background-color: #007bff;
-  padding: 8px 12px;
-  border-radius: 3px;
-  display: block;
-  text-align: center;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
 }
 
-.menu-list a:hover {
-  background-color: #0056b3;
+nav a:hover {
+  color: cornflowerblue;
 }
 
-.menu-list .is-active {
-  background-color: #343a40;
+.layout-content {
+  padding-top: 1.5rem;
 }
