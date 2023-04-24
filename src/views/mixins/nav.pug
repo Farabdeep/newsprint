@@ -1,6 +1,5 @@
-mixin navigation
+mixin navigation(currentPath)
   -
-    const getPath = () => window.location.pathname;
     const routes = [
       { label: "Home", href: "/" },
       { label: "Population", href: "/population" },
@@ -14,4 +13,4 @@ mixin navigation
       each route in routes
         - const { label, href } = route
         li
-          a(href=href, class={ 'is-active': href === getPath() }) #{label}
+          a(href=href, class={ 'is-active': href === currentPath }) #{label}

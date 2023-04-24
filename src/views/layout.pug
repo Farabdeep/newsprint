@@ -9,7 +9,9 @@ html
        .layout
             .layout-nav
                 include mixins/nav
-                +navigation()
+                // Assuming you're using Express.js, and 'req' is the request object
+                +navigation(req.path)
+
     main
       block content
     footer
