@@ -1,24 +1,35 @@
-/* Import dependencies */
-const express = require("express");
+/*  Import dependencies */
+import express from "express";
+import mysql from "mysql2/promise";
+import bcrypt from "bcryptjs";
+import DatabaseService from "./services/database.service.mjs";
+import session from "express-session";
+
+/* Create express instance */
 const app = express();
 const port = 3000;
 
-const mysql = require("mysql2");
+/* Add form data middleware */
+app.use(express.urlencoded({ extended: true }));
 
-/* Create express instance */
+app.use(
+  session({
+    secret: "verysecretkey",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false },
+  })
+);
 
-/* Setup database connection */
-const db = mysql.createConnection({
-  host: process.env.DATABASE_HOST || "localhost",
-  user: "user",
-  password: "password",
-  database: "world",
-  port: "3306"
-});
-
-//set view engine to pug
+// Integrate Pug with Express
 app.set("view engine", "pug");
+
+// Serve assets from 'static' folder
 app.use(express.static("static"));
+
+const db = await DatabaseService.connect();
+const { conn } = db;
+
 
 /* Landing route */
 // Sample API route
@@ -34,6 +45,10 @@ app.get("/cities", (req, res) => {
    });
 });
 
+// Gallery route
+app.get("/gallery", (req, res) => {
+  res.render("gallery");
+});
 
 app.get("/single-city/:id", async function (req, res) {
   var cityId = req.params.id;
