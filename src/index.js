@@ -35,7 +35,7 @@ app.get("/cities", (req, res) => {
 });
 
 async function getCityById(cityId) {
-  const [rows] =  db.query('SELECT * FROM city WHERE ID = ?', [cityId]);
+  const [rows] =  await db.query('SELECT * FROM city WHERE ID = ?', [cityId]);
   return rows[0];
 }
 
