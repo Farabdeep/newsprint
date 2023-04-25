@@ -21,9 +21,6 @@ app.set("view engine", "pug");
 app.use(express.static("static"));
 
 /* Landing route */
-
-
-
 // Sample API route
 app.get("/", (req, res) => {
   res.render("index.pug");
