@@ -34,6 +34,19 @@ app.get("/cities", (req, res) => {
    });
 });
 
+async function getCityById(cityId) {
+  const [rows] =  db.query('SELECT * FROM city WHERE ID = ?', [cityId]);
+  return rows[0];
+}
+
+app.get("/single-city/:id", async function (req, res) {
+  var cityId = req.params.id;
+  // Retrieve city information from the database using the cityId
+  var city = await getCityById(cityId);
+  res.render('city', {city: city});
+});
+
+
 app.get("/aboutus", (req, res) => {
   res.render("aboutus.pug");
 });
