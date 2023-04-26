@@ -39,10 +39,9 @@ app.get("/", (req, res) => {
 
 // Returns an array of cities from the database
 app.get("/cities", (req, res) => {
-   db.execute("SELECT * FROM city LIMIT 120", (err, rows, fields) => {
-    console.log(`The length oF cities table is: ${rows.length}`);
-    return res.render("cities", {'rows': rows});
-   });
+  const cityId = req.params.id;
+  const city = await db.getCity(cityId);
+  return res.render("city", { city });
 });
 
 // Gallery route
