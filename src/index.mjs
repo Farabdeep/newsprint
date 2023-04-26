@@ -49,11 +49,34 @@ app.get("/gallery", (req, res) => {
   res.render("gallery");
 });
 
-app.get("/single-city/:id", async function (req, res) {
-  var cityId = req.params.id;
-  // Retrieve city information from the database using the cityId
-  var city = await getCityById(cityId);
-  res.render('city', {city: city});
+app.get("/api/cities", async (req, res) => {
+  const [rows, fields] = await db.getCities();
+  return res.send(rows);
+});
+
+app.get("/api/countries", async (req, res) => {
+  const countries = await db.getCountries();
+  res.send(countries);
+});
+
+app.get("/cities/:id", async (req, res) => {
+  const cityId = req.params.id;
+  const city = await db.getCity(cityId);
+  return res.render("city", { city });
+});
+
+
+/* Update a city by ID */
+app.post("/cities/:id", async (req, res) => {
+  const cityId = req.params.id;
+  const { name } = req.body;
+  const sql = `
+    UPDATE city
+    SET Name = '${name}'
+    WHERE ID = '${cityId}';
+  `;
+  await conn.execute(sql);
+  return res.redirect(`/cities/${cityId}`);
 });
 
 async function getCityById(cityId) {
