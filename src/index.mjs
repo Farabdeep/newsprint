@@ -39,9 +39,9 @@ app.get("/", (req, res) => {
 
 // Returns an array of cities from the database
 app.get("/cities", (req, res) => {
-  const cityId = req.params.id;
-  const city = await db.getCity(cityId);
-  return res.render("city", { city });
+  const [rows, fields] = await db.getCities();
+  /* Render cities.pug with data passed as plain object */
+  return res.render("cities", { rows, fields });
 });
 
 // Gallery route
