@@ -38,8 +38,8 @@ app.get("/", (req, res) => {
 });
 
 // Returns an array of cities from the database
-app.get("/cities", (req, res) => {
-  const [rows, fields] =  db.getCities();
+app.get("/cities", async (req, res) => {
+  const [rows, fields] =  await db.getCities();
   /* Render cities.pug with data passed as plain object */
   return res.render("cities", { rows, fields });
 });
