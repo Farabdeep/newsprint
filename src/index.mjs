@@ -85,7 +85,7 @@ async function getCityById(cityId) {
 }
 
 app.get("/aboutus", (req, res) => {
-  res.render("aboutus.pug");
+  res.render("aboutus");
 });
 
 // Register
